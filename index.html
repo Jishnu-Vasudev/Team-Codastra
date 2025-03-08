@@ -3,28 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeonBot</title>
-    <link rel="stylesheet" href="style.css">
+    <title>AI Chatbot Integrated Finance App</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        :root {
+            --bg-color: #0d0d0d;
+            --text-color: white;
+            --card-bg: rgba(0, 0, 0, 0.8);
+            --card-border: #ff00ff;
+            --header-bg: #181818;
+            --menu-bg: #222;
+            --icon-color: #ff00ff;
+            --button-color: #ff00ff;
+        }
+
+        .light-theme {
+            --bg-color: #f5f5f5;
+            --text-color: #000;
+            --card-bg: rgba(255, 255, 255, 0.8);
+            --card-border: #ff7700;
+            --header-bg: #ddd;
+            --menu-bg: #fff;
+            --icon-color: #ff7700;
+            --button-color: #ff7700;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: 0.3s ease-in-out;
+        }
+
+        .container {
+            width: 70%; /* Reduced width */
+            max-width: 800px; /* Reduced max-width */
+            background-color: var(--header-bg);
+            border-radius: 15px;
+            padding: 15px; /* Reduced padding */
+            box-shadow: 0 0 15px var(--card-border); /* Reduced shadow size */
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--header-bg);
+            padding: 8px; /* Reduced padding */
+            border-radius: 10px;
+            margin-bottom: 15px; /* Reduced margin */
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Reduced gap */
+        }
+
+        .hr {
+            text-decoration: none;
+            color: red;
+        }
+
+        .theme-switch {
+            position: relative;
+            width: 40px; /* Reduced size */
+            height: 20px; /* Reduced size */
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #222;
+            border-radius: 25px;
+            transition: 0.4s;
+        }
+
+        .slider::before {
+            position: absolute;
+            content: "";
+            height: 14px; /* Reduced size */
+            width: 14px; /* Reduced size */
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.4s;
+        }
+
+        input:checked + .slider {
+            background-color: var(--button-color);
+        }
+
+        input:checked + .slider::before {
+            transform: translateX(18px); /* Adjusted distance */
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px; /* Reduced width */
+            height: 100%;
+            background: var(--menu-bg);
+            padding-top: 50px; /* Reduced padding */
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .navbar.active {
+            transform: translateX(0);
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            padding: 12px; /* Reduced padding */
+            text-align: center;
+        }
+
+        .menu li a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .menu li a:hover {
+            color: var(--button-color);
+        }
+
+        .main-content {
+            text-align: center;
+            padding-left: 20px; /* Reduced padding */
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 15px; /* Reduced margin */
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
+            border-radius: 15px;
+            width: 40%; /* Reduced width */
+            margin: 10px;
+            padding: 15px; /* Reduced padding */
+            box-shadow: 0 0 10px var(--card-border); /* Reduced shadow size */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--card-border); /* Adjusted shadow size */
+        }
+
+        .hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            width: 25px; /* Reduced size */
+            height: 25px; /* Reduced size */
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .hamburger-menu div {
+            width: 100%;
+            height: 3px; /* Reduced size */
+            background-color: var(--text-color);
+        }
+
+        h1, h2 {
+            margin: 8px 0; /* Reduced margin */
+            color: var(--text-color);
+        }
+
+        p {
+            color: var(--text-color);
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>FinBot</h1>
-            <label class="theme-switch">
-                <input type="checkbox" id="theme-toggle">
-                <span class="slider"></span>
-            </label>
-        </div>
-        <div class="chatbox">
-            <div class="messages" id="chat">
-                <div class="message bot">Welcome, wanderer. How can I assist you?</div>
-            </div>
-            <div class="input-area">
-                <input type="text" id="user-input" placeholder="Type a message...">
-                <button onclick="sendMessage()">Send</button>
-            </div>
-        </div>
+    <div class="navbar" id="navbar">
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="views.html">View and Categorize</a></li>
+            <li><a href="goals.html">Set Goals</a></li>
+            <li><a href="advisor.html">Smart Advisor</a></li>
+        </ul>
     </div>
-    <script src="script.js"></script>
+    <div class="container">
+        <header class="header">
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="header-right">
+                <a href="profile.html" class = "hr">Profile</a>
+                <a href="notification.html" class="hr">Notifications</a>
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </header>
+        <main class="main-content" id="main-content">
+            <h1>Welcome to Your AI-Powered Finance Assistant</h1>
+            <div class="features">
+                <div class="card">
+                    <h2>Track Spending</h2>
+                    <p>Monitor your expenses in real-time and get detailed reports.</p>
+                </div>
+                <div class="card">
+                    <h2>Smart Categorization</h2>
+                    <p>Automatically categorize your spending to understand your habits better.</p>
+                </div>
+                <div class="card">
+                    <h2>Set Financial Goals</h2>
+                    <p>Set and track your financial goals with personalized advice.</p>
+                </div>
+                <div class="card">
+                    <h2>AI Chatbot</h2>
+                    <p>Get real-time advice and tips from our AI-powered chatbot.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        document.getElementById('theme-toggle').addEventListener('change', function() {
+            document.body.classList.toggle('light-theme');
+        });
+
+        document.getElementById('hamburger-menu').addEventListener('click', function() {
+            document.getElementById('navbar').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
