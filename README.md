@@ -4,30 +4,29 @@ The official template repository for Define 3.0
 
 ![DefineHack 2025 Logo](https://github.com/user-attachments/assets/8173bc16-418e-4912-b500-c6427e4ba4b6)
 
-
-
-# < Project Name >
+# An Artificially Intelligent Chatbot Integrated Finance System and Advisory
  Cover Image  If applicable
 
 ### Team Information
-- **Team Name**: <Team Name> 
-- **Track**: < Track >
+- **Team Name**: Codastra
+- **Track**: Fintech
 
 ### Team Members
 | Name | Role | GitHub | LinkedIn |
 |------|------|--------|----------|
-| [Full Name] | [Role] | [@username](https://github.com/username) | [Profile](https://linkedin.com/in/username) |
-| [Full Name] | [Role] | [@username](https://github.com/username) | [Profile](https://linkedin.com/in/username) |
-| [Full Name] | [Role] | [@username](https://github.com/username) | [Profile](https://linkedin.com/in/username) |
-| [Full Name] | [Role] | [@username](https://github.com/username) | [Profile](https://linkedin.com/in/username) |
+| E V Jishnu | [Role] | [@Jishnu_Vasudev](https://github.com/Jishnu_Vasudev) | [E V Jishnu](https://www.linkedin.com/in/jishnu-ev-367a60330) |
+| Diya Mathews | [Role] | [@diyamofficial](https://github.com/diyamofficial) | [Diya Mathews]() |
+| Elza Sabu | [Role] | [@elzasabu](https://github.com/elzasabu) | [Elza Sabu](https://www.linkedin.com/in/elza-sabu-a3z0l1e1) |
+| Sara Robin Baby | [Role] | [@sararobinbaby](https://github.com/sararobinbaby) | [Sara Robin Baby](https://www.linkedin.com/in/sara-robin-baby-a54242292) |
 
 ## Project Details
 
 ### Overview
-_A concise summary of your project (2-3 sentences)_
+We're working on a Smart Finance Advisor, an AI-powered fintech chatbot that provides a financial dashboard. 
+People unfamiliar with financial management can query on this chatbot for advices. The chatbot is trained on financial management data.
 
 ### Problem Statement
-_Describe the problem your project aims to solve_
+Smart Finance Advisor is an AI-powered chatbot integrated system that analyzes spending patterns and predicts finance trend, detects unnecessary expenses, and gives personalized budgeting insights, and makes financial management easier and more accessible.
 
 ### Solution
 _Explain your approach to solving the problem_
