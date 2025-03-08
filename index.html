@@ -3,264 +3,392 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chatbot Integrated Finance App</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
+    <title>Smart Spending Advisor - AI-Powered Finance Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-
-        :root {
-            --bg-color: #0d0d0d;
-            --text-color: white;
-            --card-bg: rgba(0, 0, 0, 0.8);
-            --card-border: #ff00ff;
-            --header-bg: #181818;
-            --menu-bg: #222;
-            --icon-color: #ff00ff;
-            --button-color: #ff00ff;
+        body.dark {
+            background-color: #121212;
+            color: #B0B0B0;
         }
-
-        .light-theme {
-            --bg-color: #f5f5f5;
-            --text-color: #000;
-            --card-bg: rgba(255, 255, 255, 0.8);
-            --card-border: #ff7700;
-            --header-bg: #ddd;
-            --menu-bg: #fff;
-            --icon-color: #ff7700;
-            --button-color: #ff7700;
+        .dark .bg-white { background-color: #1E1E1E; }
+        .dark .text-gray-500 { color: #B0B0B0; }
+        .dark .text-gray-600 { color: #A0A0A0; }
+        .dark .text-custom { color: #B0B0B0; }
+        .dark .hover\\:bg-gray-50:hover { background-color: #3A3A3A; }
+        .dark .bg-gray-100 { background-color: #2A2A2A; }
+        .dark .bg-gray-50 { background-color: #2A2A2A; }
+        .dark .border-gray-200 { border-color: #3A3A3A; }
+        .dark .bg-yellow-50 { background-color: #423F1E; }
+        .dark .bg-green-50 { background-color: #1E423F; }
+        .dark .dark-theme-toggle {
+            background-color: #1E1E1E;
+            color: #B0B0B0;
         }
-
+        .dark-theme-toggle {
+            background-color: #FFFFFF;
+            color: #000000;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .dark .dark-theme-toggle {
+            background-color: #1E1E1E;
+            color: #B0B0B0;
+        }
         body {
             font-family: 'Orbitron', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            transition: 0.3s ease-in-out;
         }
-
-        .container {
-            width: 70%; /* Reduced width */
-            max-width: 800px; /* Reduced max-width */
-            background-color: var(--header-bg);
-            border-radius: 15px;
-            padding: 15px; /* Reduced padding */
-            box-shadow: 0 0 15px var(--card-border); /* Reduced shadow size */
+        .hover\\:bg-gray-50:hover {
+            background-color: #f5f5f5;
+            color: #000000;
         }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: var(--header-bg);
-            padding: 8px; /* Reduced padding */
-            border-radius: 10px;
-            margin-bottom: 15px; /* Reduced margin */
+        .dark .hover\\:bg-gray-50:hover {
+            background-color: #3A3A3A;
+            color: #B0B0B0;
         }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 15px; /* Reduced gap */
-        }
-
-        .hr {
-            text-decoration: none;
-            color: red;
-        }
-
-        .theme-switch {
-            position: relative;
-            width: 40px; /* Reduced size */
-            height: 20px; /* Reduced size */
-        }
-
         .theme-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
+            display: none;
         }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #222;
-            border-radius: 25px;
-            transition: 0.4s;
+        .theme-switch .slider {
+            position: relative;
+            display: inline-block;
+            width: 34px;
+            height: 14px;
+            background-color: #ccc;
+            border-radius: 34px;
+            transition: background-color 0.2s;
         }
-
-        .slider::before {
+        .theme-switch .slider::before {
+            content: '';
             position: absolute;
-            content: "";
-            height: 14px; /* Reduced size */
-            width: 14px; /* Reduced size */
-            left: 3px;
-            bottom: 3px;
-            background-color: white;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
-            transition: 0.4s;
+            background-color: white;
+            top: -4px;
+            left: -4px;
+            transition: transform 0.2s;
         }
-
-        input:checked + .slider {
-            background-color: var(--button-color);
+        .theme-switch input:checked + .slider {
+            background-color: #6366f1;
         }
-
-        input:checked + .slider::before {
-            transform: translateX(18px); /* Adjusted distance */
-        }
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 200px; /* Reduced width */
-            height: 100%;
-            background: var(--menu-bg);
-            padding-top: 50px; /* Reduced padding */
-            transform: translateX(-100%);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .navbar.active {
-            transform: translateX(0);
-        }
-
-        .menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .menu li {
-            padding: 12px; /* Reduced padding */
-            text-align: center;
-        }
-
-        .menu li a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .menu li a:hover {
-            color: var(--button-color);
-        }
-
-        .main-content {
-            text-align: center;
-            padding-left: 20px; /* Reduced padding */
-        }
-
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin-top: 15px; /* Reduced margin */
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 2px solid var(--card-border);
-            border-radius: 15px;
-            width: 40%; /* Reduced width */
-            margin: 10px;
-            padding: 15px; /* Reduced padding */
-            box-shadow: 0 0 10px var(--card-border); /* Reduced shadow size */
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px var(--card-border); /* Adjusted shadow size */
-        }
-
-        .hamburger-menu {
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            width: 25px; /* Reduced size */
-            height: 25px; /* Reduced size */
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        .hamburger-menu div {
-            width: 100%;
-            height: 3px; /* Reduced size */
-            background-color: var(--text-color);
-        }
-
-        h1, h2 {
-            margin: 8px 0; /* Reduced margin */
-            color: var(--text-color);
-        }
-
-        p {
-            color: var(--text-color);
+        .theme-switch input:checked + .slider::before {
+            transform: translateX(20px);
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const darkModeToggle = document.getElementById('dark-theme-toggle');
+            darkModeToggle.addEventListener('change', function() {
+                document.body.classList.toggle('dark');
+            });
+
+            const botButton = document.getElementById('bot-button');
+            botButton.addEventListener('click', function() {
+                window.location.href = 'advisor.html';
+            });
+        });
+    </script>
 </head>
-<body>
-    <div class="navbar" id="navbar">
-        <ul class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="views.html">View and Categorize</a></li>
-            <li><a href="goals.html">Set Goals</a></li>
-            <li><a href="advisor.html">Smart Advisor</a></li>
-        </ul>
-    </div>
-    <div class="container">
-        <header class="header">
-            <div class="hamburger-menu" id="hamburger-menu">
-                <div></div>
-                <div></div>
-                <div></div>
+<body class="bg-gray-100 font-sans">
+    <div class="min-h-screen flex">
+        <aside class="w-64 bg-white shadow-lg">
+            <div class="p-6">
+                <div class="mb-8">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div>
+                            <h3 class="font-semibold">Alex Johnson</h3>
+                            <p class="text-sm text-gray-500">Premium Member</p>
+                        </div>
+                    </div>
+                </div>
+                <nav>
+                    <a href="#" class="flex items-center space-x-3 p-3 rounded-lg bg-custom bg-opacity-10 text-custom mb-2">
+                        <i class="fas fa-chart-pie"></i>
+                        <span class="text-custom">Dashboard</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:bg-gray-50 mb-2">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>Transactions</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:bg-gray-50 mb-2">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Insights</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:bg-gray-50 mb-2">
+                        <i class="fas fa-piggy-bank"></i>
+                        <span>Budgeting</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:bg-gray-50 mb-2">
+                        <i class="fas fa-trophy"></i>
+                        <span>Rewards</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:bg-gray-50">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </nav>
+                <div class="mt-8 p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-medium">Spending Detox Mode</span>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" class="sr-only peer">
+                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-custom"></div>
+                        </label>
+                    </div>
+                    <p class="text-xs text-gray-500">Lock non-essential spending categories</p>
+                </div>
             </div>
-            <div class="header-right">
-                <a href="profile.html" class = "hr">Profile</a>
-                <a href="notification.html" class="hr">Notifications</a>
-                <label class="theme-switch">
-                    <input type="checkbox" id="theme-toggle">
-                    <span class="slider"></span>
-                </label>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8">
+            <!-- Header -->
+            <header class="flex justify-between items-center mb-8">
+                <div>
+                    <h1 class="text-2xl font-bold">Financial Dashboard</h1>
+                    <p class="text-gray-500">Welcome back, Alex</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="!rounded-button bg-white border border-gray-200 px-4 py-2 flex items-center space-x-2">
+                        <i class="fas fa-bell text-gray-400"></i>
+                        <span class="bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </button>
+                    <label class="relative inline-flex items-center cursor-pointer theme-switch">
+                        <input type="checkbox" id="dark-theme-toggle">
+                        <span class="slider"></span>
+                    </label>
+                    <button class="!rounded-button bg-custom text-white px-6 py-2">
+                        <i class="fas fa-plus mr-2"></i>Add Transaction
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Grid -->
+            <div class="grid grid-cols-2 gap-6 mb-6">
+                <!-- Financial Overview -->
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-lg font-semibold">Spending Overview</h2>
+                        <select class="border-0 text-sm text-gray-500 focus:ring-0">
+                            <option>Last 30 Days</option>
+                            <option>Last 3 Months</option>
+                            <option>Last Year</option>
+                        </select>
+                    </div>
+                    <div id="spendingChart" class="h-64"></div>
+                </div>
+                <!-- Category Breakdown -->
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-lg font-semibold mb-6">Spending by Category</h2>
+                    <div id="categoryChart" class="h-64"></div>
+                </div>
+
+                <!-- Smart Alerts -->
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-lg font-semibold mb-4">Smart Alerts</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4 p-4 bg-yellow-50 rounded-lg">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 mt-1"></i>
+                            <div>
+                                <h3 class="font-medium">Unusual Spending Detected</h3>
+                                <p class="text-sm text-gray-600">Your entertainment spending is 40% higher than last month</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 p-4 bg-green-50 rounded-lg">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <div>
+                                <h3 class="font-medium">Savings Goal Progress</h3>
+                                <p class="text-sm text-gray-600">You're on track to reach your vacation fund goal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Goals Tracking -->
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h2 class="text-lg font-semibold mb-4">Financial Goals</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Vacation Fund</span>
+                                <span class="text-sm text-gray-500">$3,500 / $5,000</span>
+                            </div>
+                            <div class="h-2 bg-gray-100 rounded-full">
+                                <div class="h-2 bg-custom rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Emergency Fund</span>
+                                <span class="text-sm text-gray-500">$8,000 / $10,000</span>
+                            </div>
+                            <div class="h-2 bg-gray-100 rounded-full">
+                                <div class="h-2 bg-custom rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </header>
-        <main class="main-content" id="main-content">
-            <h1>Welcome to Your AI-Powered Finance Assistant</h1>
-            <div class="features">
-                <div class="card">
-                    <h2>Track Spending</h2>
-                    <p>Monitor your expenses in real-time and get detailed reports.</p>
+
+            <!-- Recent Transactions -->
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-lg font-semibold">Recent Transactions</h2>
+                    <button class="text-custom text-sm font-medium">View All</button>
                 </div>
-                <div class="card">
-                    <h2>Smart Categorization</h2>
-                    <p>Automatically categorize your spending to understand your habits better.</p>
-                </div>
-                <div class="card">
-                    <h2>Set Financial Goals</h2>
-                    <p>Set and track your financial goals with personalized advice.</p>
-                </div>
-                <div class="card">
-                    <h2>AI Chatbot</h2>
-                    <p>Get real-time advice and tips from our AI-powered chatbot.</p>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-shopping-bag text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">Amazon.com</h3>
+                                <p class="text-sm text-gray-500">Shopping</p>
+                            </div>
+                        </div>
+                        <span class="text-red-500 font-medium">-$84.99</span>
+                    </div>
+                    <div class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-utensils text-green-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">Whole Foods</h3>
+                                <p class="text-sm text-gray-500">Groceries</p>
+                            </div>
+                        </div>
+                        <span class="text-red-500 font-medium">-$156.32</span>
+                    </div>
+                    <div class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-dollar-sign text-purple-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">Salary Deposit</h3>
+                                <p class="text-sm text-gray-500">Income</p>
+                            </div>
+                        </div>
+                        <span class="text-green-500 font-medium">+$3,500.00</span>
+                    </div>
                 </div>
             </div>
         </main>
-    </div>
-    <script>
-        document.getElementById('theme-toggle').addEventListener('change', function() {
-            document.body.classList.toggle('light-theme');
-        });
 
-        document.getElementById('hamburger-menu').addEventListener('click', function() {
-            document.getElementById('navbar').classList.toggle('active');
+        <!-- AI Assistant Button -->
+        <button id="bot-button" class="fixed bottom-8 right-8 bg-custom text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-opacity-90">
+            <i class="fas fa-robot text-xl"></i>
+        </button>
+    </div>
+
+    <script>
+        // Spending Overview Chart
+        const spendingChart = echarts.init(document.getElementById('spendingChart'));
+        const spendingOption = {
+            animation: false,
+            tooltip: {
+                trigger: 'axis'
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                axisLine: {
+                    lineStyle: {
+                        color: '#FFFFFF'
+                    }
+                },
+                axisLabel: {
+                    color: '#FFFFFF'
+                }
+            },
+            yAxis: {
+                type: 'value',
+                axisLine: {
+                    lineStyle: {
+                        color: '#FFFFFF'
+                    }
+                },
+                axisLabel: {
+                    color: '#FFFFFF'
+                }
+            },
+            series: [{
+                data: [820, 932, 901, 934, 1290, 1330, 1320],
+                type: 'line',
+                areaStyle: {
+                    opacity: 0.1
+                },
+                lineStyle: {
+                    color: '#00E5FF'
+                },
+                itemStyle: {
+                    color: '#00E5FF'
+                }
+            }]
+        };
+        spendingChart.setOption(spendingOption);
+
+        // Category Breakdown Chart
+        const categoryChart = echarts.init(document.getElementById('categoryChart'));
+        const categoryOption = {
+            animation: false,
+            tooltip: {
+                trigger: 'item'
+            },
+            series: [{
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                itemStyle: {
+                    borderRadius: 10,
+                    borderColor: '#fff',
+                    borderWidth: 2
+                },
+                label: {
+                    show: false
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '14',
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [
+                    { value: 1048, name: 'Housing' },
+                    { value: 735, name: 'Transportation' },
+                    { value: 580, name: 'Food' },
+                    { value: 484, name: 'Entertainment' },
+                    { value: 300, name: 'Shopping' }
+                ]
+            }]
+        };
+        categoryChart.setOption(categoryOption);
+
+        window.addEventListener('resize', function() {
+            spendingChart.resize();
+            categoryChart.resize();
         });
     </script>
 </body>
