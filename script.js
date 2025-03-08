@@ -9,7 +9,7 @@ document.getElementById('user-input').addEventListener('keypress', function(even
     }
 });
 
-function sendMessage() {
+async function sendMessage() {
     let inputField = document.getElementById('user-input');
     let chat = document.getElementById('chat');
     let userText = inputField.value.trim();
@@ -25,15 +25,38 @@ function sendMessage() {
     inputField.value = ""; // Clear input
     chat.scrollTop = chat.scrollHeight; // Auto-scroll
 
-    // Simulated bot response
-    setTimeout(() => {
+    adjustMessageColors();
+
+    try {
         let botMessage = document.createElement('div');
         botMessage.classList.add('message', 'bot');
-        botMessage.innerText = "Processing...";
-        chat.appendChild(botMessage);
-        chat.scrollTop = chat.scrollHeight; // Auto-scroll
-    }, 500);
 
+        const response = await fetch("http://localhost:5500/process-data", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ param: userText }) // Send the input as JSON
+        });
+
+        const data = await response.json();
+
+        if (data.result) {
+            botMessage.innerText = data.result;
+        } else {
+            botMessage.innerText = "Sorry, I couldn't process that.";
+        }   
+        
+        chat.appendChild(botMessage);
+        chat.scrollTop = chat.scrollHeight;
+    } catch (error) {
+        console.error("Error:", error);
+        let botMessage = document.createElement('div');
+        botMessage.classList.add('message', 'bot');
+        botMessage.innerText = `Error processing request: ${error.message}`;
+        chat.appendChild(botMessage);
+        console.error(error);
+    }
     adjustMessageColors();
 }
 
