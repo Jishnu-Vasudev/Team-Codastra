@@ -58,19 +58,28 @@ Our solution leverages the capabilities of artificial intelligence to make finan
 - UI/UX
 
 ### Installation 
+To use our project, install the files and create a directory.
+![image](https://github.com/user-attachments/assets/0b18a14f-b62a-41e2-8f1e-fe45168d98fe)
+Run the following command on a terminal in the directory.
 ```bash
-
+npm init
+npm install
 ```
 
 ### Running the Project
 ```bash
-
+node server.js
+index.html
 ```
 
 ## Additional Resources
 
 ### Project Timeline
-_Brief overview of your development process and milestones_
+5 hrs: Frontend Development
+Next 5 hrs(10 hrs): Database Storage
+Next 5 hrs (10 hrs): Gemini API Connection
+Last 4 hrs: Preparation of Presentation and Idea Pitching
+
 
 ### Challenges Faced
 Faced challenge in connecting Gemini APi to the the frontend. We resolved this issue later as we got help from gpt and the mentors.
@@ -82,8 +91,10 @@ Again there was an issue with connecting MongoDB to the code, it was not acessib
 -Mobile App Version – Develop a React Native or Flutter mobile app for seamless access across devices.5
 
 ### References (if any)
-- [Reference 1](link)
-- [Reference 2](link)
+- AI Financial Advisers Target Young People Living Paycheck to Paycheck: wired.com
+- Inside Commonwealth Bank's Quiet AI Revolution: theaustralian.com.au
+- Tiger Brokers Adopts DeepSeek Model as Chinese Brokerages, Funds Rush to Embrace AI: reuters.com
+- Applications of Artificial Intelligence in Finance: en.wikipedia.org
 
 ---
 
