@@ -31,9 +31,6 @@ Manually taking care of finances is time-consuming and complicated, it takes a l
 ### Solution
 Our solution leverages the capabilities of artificial intelligence to make financial management more manageable. By incorporating a Gemini model, we offer an AI-powered chatbot that provides real-time financial guidance. We offer an ML model for assisting users in analyzing expenses, forecasting trends, identifying unnecessary expenditures, and receiving tailored budget recommendations.
 
-### Demo
-[![Project Demo](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
-_Replace VIDEO_ID with your YouTube video ID or provide an alternative demo link_
 
 ### Live Project
 [Project Name](https://your-project-url.com)
@@ -49,16 +46,16 @@ _Replace VIDEO_ID with your YouTube video ID or provide an alternative demo link
 - **Other Tools**: -
 
 ### Key Features
-- Feature 1
-- Feature 2
-- Feature 3
+- Users can chat with an AI assistant about their spending habits, budgeting, and savings.
+- Visual representation of expenses categorized by food, bills, shopping, etc.
+- Users receive instant alerts when they spend more than their savings or make a large transaction.
 
 ## Setup Instructions
 
 ### Prerequisites
-- Requirement 1
-- Requirement 2
-- Requirement 3
+- html, css, fetch api, javascript
+- API connecting 
+- UI/UX
 
 ### Installation 
 ```bash
@@ -76,10 +73,13 @@ _Replace VIDEO_ID with your YouTube video ID or provide an alternative demo link
 _Brief overview of your development process and milestones_
 
 ### Challenges Faced
-_Discuss technical challenges and how you overcame them_
+Faced challenge in connecting Gemini APi to the the frontend. We resolved this issue later as we got help from gpt and the mentors.
+Again there was an issue with connecting MongoDB to the code, it was not acessible. Later we tried to connect a json local codelet storaged as it can be used for a temporary storages. 
 
 ### Future Enhancements
-_Share your vision for future development_
+- Advanced AI Insights – Upgrade the chatbot with predictive analytics to forecast future expenses and suggest better financial strategies.
+- Multi-Bank Integration – Extend support for multiple financial institutions using Plaid or Open Banking APIs to provide a comprehensive financial overview.
+-Mobile App Version – Develop a React Native or Flutter mobile app for seamless access across devices.5
 
 ### References (if any)
 - [Reference 1](link)
