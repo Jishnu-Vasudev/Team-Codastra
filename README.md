@@ -14,10 +14,10 @@ The official template repository for Define 3.0
 ### Team Members
 | Name | Role | GitHub | LinkedIn |
 |------|------|--------|----------|
-| E V Jishnu | [Role] | [@Jishnu_Vasudev](https://github.com/Jishnu_Vasudev) | [E V Jishnu](https://www.linkedin.com/in/jishnu-ev-367a60330) |
-| Diya Mathews | [Role] | [@diyamofficial](https://github.com/diyamofficial) | [Diya Mathews]() |
-| Elza Sabu | [Role] | [@elzasabu](https://github.com/elzasabu) | [Elza Sabu](https://www.linkedin.com/in/elza-sabu-a3z0l1e1) |
-| Sara Robin Baby | [Role] | [@sararobinbaby](https://github.com/sararobinbaby) | [Sara Robin Baby](https://www.linkedin.com/in/sara-robin-baby-a54242292) |
+| E V Jishnu |  | Team Leader, Gemini API, Backend | [@Jishnu_Vasudev](https://github.com/Jishnu_Vasudev) | [E V Jishnu](https://www.linkedin.com/in/jishnu-ev-367a60330) |
+| Diya Mathews | Design, Frontend | [@diyamofficial](https://github.com/diyamofficial) | [Diya Mathews]() |
+| Elza Sabu | UI/UX | [@elzasabu](https://github.com/elzasabu) | [Elza Sabu](https://www.linkedin.com/in/elza-sabu-a3z0l1e1) |
+| Sara Robin Baby | Frontend | [@sararobinbaby](https://github.com/sararobinbaby) | [Sara Robin Baby](https://www.linkedin.com/in/sara-robin-baby-a54242292) |
 
 ## Project Details
 
