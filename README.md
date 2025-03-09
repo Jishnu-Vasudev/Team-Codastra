@@ -26,10 +26,10 @@ We're working on a Smart Finance Advisor, an AI-powered fintech chatbot that pro
 People unfamiliar with financial management can query on this chatbot for advices. The chatbot is trained on financial management data.
 
 ### Problem Statement
-Smart Finance Advisor is an AI-powered chatbot integrated system that analyzes spending patterns and predicts finance trend, detects unnecessary expenses, and gives personalized budgeting insights, and makes financial management easier and more accessible.
+Manually taking care of finances is time-consuming and complicated, it takes a long time to to examine and compute spending habits, forecast money trends, identify unnecessary spending, and offer personalized budgeting tips, making managing finances simpler and more convenient.
 
 ### Solution
-_Explain your approach to solving the problem_
+Our solution leverages the capabilities of artificial intelligence to make financial management more manageable. By incorporating a Gemini model, we offer an AI-powered chatbot that provides real-time financial guidance. We offer an ML model for assisting users in analyzing expenses, forecasting trends, identifying unnecessary expenditures, and receiving tailored budget recommendations.
 
 ### Demo
 [![Project Demo](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
@@ -41,12 +41,12 @@ _Replace VIDEO_ID with your YouTube video ID or provide an alternative demo link
 ## Technical Implementation
 
 ### Technologies Used
-- **Frontend**: [Technologies]
-- **Backend**: [Technologies]
-- **Database**: [Technologies]
-- **APIs**: [Technologies]
-- **DevOps**: [Technologies]
-- **Other Tools**: [Technologies]
+- **Frontend**: HTML, CSS, JS
+- **Backend**: Node.JS, Express.JS
+- **Database**: MongoDB
+- **APIs**: JS Fetch API
+- **DevOps**: -
+- **Other Tools**: -
 
 ### Key Features
 - Feature 1
