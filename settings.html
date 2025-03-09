@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Financial Dashboard Settings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
+    <style>
+        .dark .bg-custom { background-color: #4A5568; }
+        .dark {
+            color: white;
+        }
+        .dark .text-custom { color: #4A5568; }
+        .dark .hover\\:bg-custom\\:hover { background-color: #4A5568E6; }
+        .dark .bg-gray-50 { background-color: #2D3748; }
+        .dark .bg-white { background-color: #1A202C; }
+        .dark .text-gray-700 { color: #A0AEC0; }
+        .dark .text-gray-600 { color: #CBD5E0; }
+        .dark .text-gray-400 { color: #A0AEC0; }
+        .dark .text-gray-300 { color: #E2E8F0; }
+        .dark .text-white { color: #FFFFFF; }
+        .dark .border-gray-200 { border-color: #4A5568; }
+        .dark .border-gray-300 { border-color: #718096; }
+        .dark .hover\\:text-custom:hover { color: #4A5568; }
+        .dark .hover\\:text-red-500:hover { color: #FEB2B2; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen dark:bg-gray-900 dark:text-white">
+    <header class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex items-center justify-between p-4">
+            <h1 class="text-xl font-semibold dark:text-white">Dashboard Settings</h1>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" id="theme-toggle">
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-custom"></div>
+            </label>
+        </div>
+    </header>
+
+    <main class="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8 py-8">
+        <nav class="mb-8"></nav>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="space-y-8">
+                <section class="bg-white rounded-lg shadow dark:bg-gray-800">
+                    <div class="p-6">
+                        <h2 class="text-lg font-semibold mb-6 dark:text-white">Category Management</h2>
+                        <div class="space-y-4" id="category-list">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex items-center p-4 bg-gray-50 rounded-lg dark:bg-gray-700 category-item">
+                                    <i class="fas fa-grip-vertical text-gray-400 mr-3 dark:text-gray-500"></i>
+                                    <i class="fas fa-chart-line text-blue-500 mr-3 dark:text-blue-400"></i>
+                                    <span class="flex-1 dark:text-white" contenteditable="true">Investments</span>
+                                    <div class="flex gap-2">
+                                        <button class="text-gray-400 hover:text-custom dark:text-white dark:hover:text-custom edit-button"><i class="fas fa-pen"></i></button>
+                                        <button class="text-gray-400 hover:text-red-500 dark:text-white dark:hover:text-red-400 delete-button"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-4 bg-gray-50 rounded-lg dark:bg-gray-700 category-item">
+                                    <i class="fas fa-grip-vertical text-gray-400 mr-3 dark:text-gray-500"></i>
+                                    <i class="fas fa-wallet text-green-500 mr-3 dark:text-green-400"></i>
+                                    <span class="flex-1 dark:text-white" contenteditable="true">Expenses</span>
+                                    <div class="flex gap-2">
+                                        <button class="text-gray-400 hover:text-custom dark:text-white dark:hover:text-custom edit-button"><i class="fas fa-pen"></i></button>
+                                        <button class="text-gray-400 hover:text-red-500 dark:text-white dark:hover:text-red-400 delete-button"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="w-full !rounded-button bg-custom text-white py-2 px-4 hover:bg-custom/90 dark:bg-gray-600 dark:hover:bg-gray-500" id="add-category">
+                                <i class="fas fa-plus mr-2"></i>Add Category
+                            </button>
+                            <button class="w-full !rounded-button bg-custom text-white py-2 px-4 hover:bg-custom/90 dark:bg-gray-600 dark:hover:bg-gray-500" id="save-categories">
+                                <i class="fas fa-save mr-2"></i>Save Categories
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <section class="bg-white rounded-lg shadow dark:bg-gray-800">
+                    <div class="p-6">
+                        <h2 class="text-lg font-semibold mb-6 dark:text-white">Notification Preferences</h2>
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between">
+                                <span class="font-medium dark:text-white">Push Notifications</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer" checked>
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-custom"></div>
+                                </label>
+                            </div>
+                            <div class="space-y-4">
+                                <label class="block">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-white">Alert Frequency</span>
+                                    <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom focus:ring-custom dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white">
+                                        <option>Daily</option>
+                                        <option>Weekly</option>
+                                        <option>Monthly</option>
+                                    </select>
+                                </label>
+                                <div class="space-y-3">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="rounded border-gray-300 text-custom focus:ring-custom dark:border-gray-600 dark:focus:ring-gray-500" checked>
+                                        <span class="ml-2 dark:text-white">Budget Alerts</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="rounded border-gray-300 text-custom focus:ring-custom dark:border-gray-600 dark:focus:ring-gray-500" checked>
+                                        <span class="ml-2 dark:text-white">Investment Updates</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="rounded border-gray-300 text-custom focus:ring-custom dark:border-gray-600 dark:focus:ring-gray-500">
+                                        <span class="ml-2 dark:text-white">Market News</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="space-y-8">
+                <section class="bg-white rounded-lg shadow dark:bg-gray-800">
+                    <div class="p-6">
+                        <h2 class="text-lg font-semibold mb-6 dark:text-white">AI Chatbot Personality</h2>
+                        <div class="space-y-6">
+                            <div class="space-y-4">
+                                <label class="flex items-center">
+                                    <input type="radio" name="personality" class="text-custom focus:ring-custom dark:text-white dark:focus:ring-gray-500" checked>
+                                    <span class="ml-2 dark:text-white">Casual</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="personality" class="text-custom focus:ring-custom dark:text-white dark:focus:ring-gray-500">
+                                    <span class="ml-2 dark:text-white">Detailed</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="personality" class="text-custom focus:ring-custom dark:text-white dark:focus:ring-gray-500">
+                                    <span class="ml-2 dark:text-white">Professional</span>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="font-medium dark:text-white">Advanced Terms</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-custom"></div>
+                                </label>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg dark:bg-gray-700">
+                                <div class="flex items-start gap-3 mb-4">
+                                    <i class="fas fa-robot text-custom mt-1 dark:text-white"></i>
+                                    <p class="text-sm text-gray-600 dark:text-white">Hey! I'm your AI financial assistant. I'll help you track your expenses and investments in a friendly way!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="bg-white rounded-lg shadow dark:bg-gray-800">
+                    <div class="p-6">
+                        <h2 class="text-lg font-semibold mb-6 dark:text-white">Data Export</h2>
+                        <div class="space-y-4">
+                            <label class="block">
+                                <span class="text-sm font-medium text-gray-700 dark:text-white">Export Format</span>
+                                <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom focus:ring-custom dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white">
+                                    <option>CSV</option>
+                                    <option>Excel</option>
+                                    <option>PDF</option>
+                                </select>
+                            </label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-white">Start Date</label>
+                                    <input type="date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom focus:ring-custom dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 dark:text-white">End Date</label>
+                                    <input type="date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom focus:ring-custom dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white">
+                                </div>
+                            </div>
+                            <button class="w-full !rounded-button bg-custom text-white py-2 px-4 hover:bg-custom/90 dark:bg-gray-600 dark:hover:bg-gray-500">
+                                <i class="fas fa-download mr-2"></i>Export Data
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="fixed bottom-0 inset-x-0 bg-white border-t border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        <div class="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-end h-16 gap-4">
+                <button class="px-4 py-2 !rounded-button border border-gray-300 text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-white dark:hover:bg-gray-700">
+                    Reset to Default
+                </button>
+                <button class="px-4 py-2 !rounded-button bg-custom text-white hover:bg-custom/90 dark:bg-gray-600 dark:hover:bg-gray-500">
+                    Save Changes
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-4 right-4 hidden">
+        <div class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg">
+            <i class="fas fa-check mr-2"></i>Settings saved successfully
+        </div>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        themeToggle.addEventListener('change', () => {
+            if (themeToggle.checked) {
+                htmlElement.classList.add('dark');
+            } else {
+                htmlElement.classList.remove('dark');
+            }
+        });
+
+        document.getElementById('add-category').addEventListener('click', () => {
+            const categoryList = document.getElementById('category-list');
+            const newCategory = document.createElement('div');
+            newCategory.classList.add('grid', 'grid-cols-2', 'gap-4');
+            newCategory.innerHTML = `
+                <div class="flex items-center p-4 bg-gray-50 rounded-lg dark:bg-gray-700 category-item">
+                    <i class="fas fa-grip-vertical text-gray-400 mr-3 dark:text-gray-500"></i>
+                    <i class="fas fa-chart-line text-blue-500 mr-3 dark:text-blue-400"></i>
+                    <span class="flex-1 dark:text-white" contenteditable="true">Investments</span>
+                    <div class="flex gap-2">
+                        <button class="text-gray-400 hover:text-custom dark:text-white dark:hover:text-custom edit-button"><i class="fas fa-pen"></i></button>
+                        <button class="text-gray-400 hover:text-red-500 dark:text-white dark:hover:text-red-400 delete-button"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="flex items-center p-4 bg-gray-50 rounded-lg dark:bg-gray-700 category-item">
+                    <i class="fas fa-grip-vertical text-gray-400 mr-3 dark:text-gray-500"></i>
+                    <i class="fas fa-wallet text-green-500 mr-3 dark:text-green-400"></i>
+                    <span class="flex-1 dark:text-white" contenteditable="true">Expenses</span>
+                    <div class="flex gap-2">
+                        <button class="text-gray-400 hover:text-custom dark:text-white dark:hover:text-custom edit-button"><i class="fas fa-pen"></i></button>
+                        <button class="text-gray-400 hover:text-red-500 dark:text-white dark:hover:text-red-400 delete-button"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+            `;
+            categoryList.insertBefore(newCategory, document.getElementById('add-category'));
+            attachCategoryEventListeners(newCategory);
+        });
+
+        function attachCategoryEventListeners(categoryElement) {
+            categoryElement.querySelectorAll('.edit-button').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const span = event.target.closest('.category-item').querySelector('span');
+                    span.contentEditable = true;
+                    span.focus();
+                });
+            });
+
+            categoryElement.querySelectorAll('.delete-button').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const categoryItem = event.target.closest('.category-item');
+                    categoryItem.remove();
+                });
+            });
+        }
+
+        document.querySelectorAll('.category-item').forEach(item => attachCategoryEventListeners(item));
+
+        
+      //  document.getElementById('save-categories').addEventListener('click', () => {
+      //      const categories = [];
+        //    document.querySelectorAll('.category-item span').forEach(span => {
+          //      categories.push(span.textContent.trim());
+            //});
+            //const contentdata = fetch("http://localhost:5500/my-json-data", {
+              //  method: "POST",
+                //headers: {
+                  //  "Content-Type": "application/json"
+                //},
+                //body: JSON.stringify(categories) // Send the input as JSON
+           // });            
+       // });
+       document.getElementById('save-categories').addEventListener('click', () => {
+        const categories = [];
+        document.querySelectorAll('.category-item span').forEach(span => {
+            categories.push(span.textContent.trim());
+        });
+        
+        localStorage.setItem('savedCategories', JSON.stringify(categories));
+        console.log('Categories saved to localStorage');
+
+
+    });        
+    </script>
+</body>
+</html>
